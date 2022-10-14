@@ -8,7 +8,9 @@ PCR in library prep can cause two or more reads to come from the same section of
     - input: `test_sorted.sam` sorted copy of test case from template
     - output: `test_out.sam`
 - Case 2:
-    - not complete yet, will include cases for different UMIs at same position, soft clipping
+    - covers more cases than Case 1, including soft clipping, not known but no N UMI, and multiple UMIs for one position.
+    - input: `test_2_sorted.sam` heavily modified copy of input for case 1.
+    - output: `test_2_out.sam`
 
 # Pseudocode
 
