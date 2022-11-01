@@ -56,28 +56,6 @@ def adjustedPosition(record):
     # print(toAdjustBy)
     return int(record[POS_INDEX]) + toAdjustBy
     
-
-# print(isPlusStrand(["a", "0"])) #should be true
-# print(isPlusStrand(["a", "15"]))    #true
-# print(isPlusStrand(["a", "16"]))    #false
-# print(isPlusStrand(["a", "17"]))    #false
-# print(isPlusStrand(["a", "83"]))    #false
-# print(isPlusStrand(["a", "163"]))   #true
-
-# adjustedPosition(["a", "0", "b", "45", "1", "1S40M"])
-# adjustedPosition(["a", "0", "b", "45", "1", "10S40M20S"])
-# adjustedPosition(["a", "0", "b", "45", "1", "40M"])
-# adjustedPosition(["a", "0", "b", "45", "1", "40M1S"])
-
-# adjustedPosition(["a", "16", "b", "45", "1", "1S40M1S"])
-# adjustedPosition(["a", "16", "b", "45", "1", "40M10D1S"])
-# adjustedPosition(["a", "16", "b", "45", "1", "40M10D"])
-# adjustedPosition(["a", "16", "b", "45", "1", "50M1000N40M10D"])
-# adjustedPosition(["a", "16", "b", "45", "1", "10S50M1000N40M10D10S"])
-
-# print(hasGoodUMI(["LKJLKJ:AACGCCAT"]))
-# print(hasGoodUMI(["LKJLKJ:AACGCNAT"]))
-
 removedDuplicateCount = 0
 removedBadUMICount = 0
 foundInChrom = set()  #holds tuples of (UMI, pos, strand)
