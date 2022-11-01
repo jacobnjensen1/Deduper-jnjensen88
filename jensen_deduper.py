@@ -78,6 +78,8 @@ def adjustedPosition(record):
 # print(hasGoodUMI(["LKJLKJ:AACGCCAT"]))
 # print(hasGoodUMI(["LKJLKJ:AACGCNAT"]))
 
+removedDuplicateCount = 0
+removedBadUMICount = 0
 foundInChrom = set()  #holds tuples of (UMI, pos, strand)
 currentChrom = ""
 with open(args.file) as inFile, open(args.outfile, "w") as outFile:
@@ -88,8 +90,10 @@ with open(args.file) as inFile, open(args.outfile, "w") as outFile:
       break
     if line.startswith("@"):
       outFile.write(line)
+      continue    
     line = line.strip().split()     #LINE IS A LIST AFTER THIS POINT
     if not hasGoodUMI(line):
+      removedBadUMICount += 1
       continue
     umi = getUMI(line)
     pos = adjustedPosition(line)
@@ -102,3 +106,8 @@ with open(args.file) as inFile, open(args.outfile, "w") as outFile:
       foundInChrom.add(recordTuple)
       outFile.write("\t".join(line))
       outFile.write("\n")
+    else:
+      removedDuplicateCount += 1
+
+print(f"removed due to UMI: {removedBadUMICount}")
+print(f"removed due to duplication: {removedDuplicateCount}")
